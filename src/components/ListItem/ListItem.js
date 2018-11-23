@@ -1,12 +1,17 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableWithoutFeedback } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 const listItem = props => (
-  <TouchableWithoutFeedback onPress={props.onItemPressed}>
+  <TouchableOpacity onPress={props.onItemPressed}>
     <View style={styles.listItem}>
+      <Image
+        resizeMode="contain"
+        source={props.placeImage}
+        style={styles.placeImage}
+      />
       <Text>{props.placeName}</Text>
     </View>
-  </TouchableWithoutFeedback>
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
@@ -14,7 +19,14 @@ const styles = StyleSheet.create({
     width: "100%",
     marginBottom: 5,
     padding: 10,
-    backgroundColor: "#eee"
+    backgroundColor: "#eee",
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  placeImage: {
+    marginRight: 8,
+    height: 30,
+    width: 30
   }
 });
 
